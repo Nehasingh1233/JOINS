@@ -1,0 +1,51 @@
+---joins
+create table NA_EMPLOYEESS13(
+emp_id int primary key ,
+emp_name varchar(20),
+emp_zipcode varchar(20),
+add_id int 
+);
+INSERT into NA_EMPLOYEESS13 values(100,'A','2345',1);
+INSERT into NA_EMPLOYEESS13 values(101,'B','2789',2);
+INSERT into NA_EMPLOYEESS13 values(102,'C','0877',3);
+INSERT into NA_EMPLOYEESS13 values(104,'D','1115',4);
+INSERT into NA_EMPLOYEESS13 values(105,'E','1135',5);
+SELECT * FROM NA_EMPLOYEESS13
+
+create table NA_address13(
+add_id int primary key,
+add_city varchar(20),
+add_country varchar(20)
+)
+
+INSERT into NA_address13 values(1,'azam','up');
+INSERT into NA_address13 values(2,'xyz','us');
+INSERT into NA_address13 values(3,'bxc','australia');
+INSERT into NA_address13 values(4,'arm','mp');
+SELECT * FROM NA_address13
+---inner join
+SELECT emp.emp_id,emp.emp_name,emp.emp_zipcode
+from NA_EMPLOYEESS13 AS emp
+INNER JOIN  NA_address13 as re 
+ON emp.add_id=re.add_id
+--left join
+SELECT emp.emp_id,emp.emp_name,emp.emp_zipcode
+from NA_EMPLOYEESS13 AS emp
+left outer join  NA_address13 as re 
+ON emp.add_id=re.add_id
+
+--right join
+SELECT emp.emp_id,emp.emp_name,emp.emp_zipcode
+from NA_EMPLOYEESS13 AS emp
+right join  NA_address13 as re 
+ON emp.add_id=re.add_id
+--full join
+SELECT emp.emp_id,emp.emp_name,emp.emp_zipcode
+from NA_EMPLOYEESS13 AS emp
+full join  NA_address13 as re 
+ON emp.add_id=re.add_id
+
+--cross join 
+
+SELECT emp.emp_id,emp.emp_name,emp.emp_zipcode
+from NA_EMPLOYEESS13 AS emp , NA_address13 as re 
